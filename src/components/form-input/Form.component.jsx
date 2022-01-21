@@ -1,8 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Form = () => {
 
-    const [name, setName] = useState('');
+    const [name, setName] = useState(() => {
+        // getting stored value
+        const saved = localStorage.getItem("name");
+        const initialValue = JSON.parse(saved);
+        return initialValue || ""
+    });
+
+    useEffect(() => {
+        // storing input name
+        localStorage.setItem("name", JSON.stringify(name));
+    }, [name]);
 
     return (
         <form>
