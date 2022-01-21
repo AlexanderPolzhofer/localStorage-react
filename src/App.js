@@ -1,4 +1,5 @@
 import './App.css';
+import FormCheckbox from './components/form-checkbox/FormCheckbox.component';
 import Form from './components/form-input/Form.component';
 import FormSubmit from './components/form-submit/FormSubmit.component';
 
@@ -12,6 +13,7 @@ function App() {
       <div className='app-content'>
         <Form />
         <FormSubmit />
+        <FormCheckbox />
       </div>
     </div>
   );
