@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useLocalStorage } from '../../utils/useLocalStorage';
 
 const Form = () => {
 
-    const [name, setName] = useState(() => {
-        // getting stored value
-        const saved = localStorage.getItem("name");
-        const initialValue = JSON.parse(saved);
-        return initialValue || ""
-    });
-
-    useEffect(() => {
-        // storing input name
-        localStorage.setItem("name", JSON.stringify(name));
-    }, [name]);
+    const [name, setName] = useLocalStorage('name', '');
 
     return (
         <form>
